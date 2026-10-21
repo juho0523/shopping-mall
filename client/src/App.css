@@ -1,0 +1,183 @@
+.container{
+  width: 1100px;
+  margin: 20px auto;
+}
+
+.header{
+  padding: 20px;
+  background-color: #333;
+}
+.header a{
+  margin: 0 16px;
+  color: yellow;
+  text-decoration: none;
+}
+.header a:hover{
+  color: #eee;
+}
+/* 상품 목록 스타일 */
+.product-list {width: 1000px; margin: 0 auto; text-align: left;}
+.product-list .search-bar input{
+  padding: 6px 12px;
+  width: 500px;
+  border: 1px solid #ccc;
+  
+}
+.table-list {width: 60%; margin: 0 auto; border-collapse: collapse;}
+.table-list th, .table-list td {border: 1px solid #ddd;padding: 8px;}
+.table-list th {text-align: center; background-color: #f2f2f2;}
+.btn-add {text-align: right; margin-top: 20px; margin-right: 20%;}
+.btn-add button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.btn-add button:hover {background-color: #0056b3;}
+
+/* 상품 상세 정보 */
+.product-info{width: 60%; margin: 0 auto;}
+.product-details {
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+.product-details p {margin-bottom: 10px;}
+.product-info .btn-list{
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 25%;
+}
+.product-info .btn-list button{
+  padding: 10px 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+/* 상품 등록 폼 */
+.add-product{width: 40%; margin: 0 auto; text-align: left;}
+.add-product form label {display: block; margin-bottom: 8px; font-weight: bold;}
+.add-product form input,
+.add-product form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.add-product form button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.add-product form button:hover {background-color: #218838;}
+.add-product form button[type="submit"] {margin-right: 10px;}
+.add-product form button[type="button"] {background-color: #6c757d}
+.add-product form button[type="button"]:hover {background-color: #5a6268;}
+
+.main-img{
+  margin-top: 20px;
+}
+
+.sign-in form{
+  width: 30%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+
+.sign-in form input{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.sign-in form button {
+  width: 100%;
+  padding: 8px 12px;
+  margin-left: 3%;
+}
+
+.header-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  margin-left: 12px;
+}
+.logout-btn {
+  padding: 6px 12px;
+  border: 1px solid #ff9f1c;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #ff9f1c;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background-color: #ff9f1c;
+  color: #333;
+}
+
+.sign-up{width: 40%; margin: 0 auto; text-align: left;}
+.sign-up form label {display: block; margin-bottom: 8px; font-weight: bold;}
+.sign-up form input,
+.sign-up form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.sign-up form select {
+  min-width: 160px;
+  padding: 10px 12px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.sign-up form .gender-title {margin-bottom: 8px;}
+.sign-up form .gender-options {
+  display: flex; 
+  flex-direction: 
+  row; gap: 24px; 
+  margin-bottom: 16px;
+}
+.sign-up form .gender-options label {
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 0; 
+  font-weight: normal;
+}
+.sign-up form .gender-options input[type="radio"] {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  accent-color: #007bff;
+}
+.sign-up form button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.sign-up form button:hover {background-color: #0056b3;}
+.sign-up form button[type="submit"] {margin-right: 10px;}
+.sign-up form button[type="button"] {background-color: #6c757d}
+.sign-up form button[type="button"]:hover {background-color: #5a6268;}
+
