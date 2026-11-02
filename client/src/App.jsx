@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-// import heroImg from './assets/hero.png'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
+import { useState, useEffect, useRef } from 'react'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
+
 import Main from './layouts/Main'
 import Header from './layouts/Header'
 import ProductList from './pages/ProductList'
@@ -12,44 +10,92 @@ import AddProduct from './pages/AddProduct'
 import SignIn from './users/SignIn'
 import SignUp from './users/SignUp'
 import UpdateProduct from './pages/UpdateProduct'
+import AdminPage from './users/AdminPage'
+
+// 관리자 권한 확인
+const AdminCheck = ({ userRole, children }) => {
+  const alertShown = useRef(false)
+
+  useEffect(() => {
+    
+    if (userRole !== 'admin' && !alertShown.current) {
+      alertShown.current = true
+      alert('관리자만 접근할 수 있습니다.')
+    }
+  }, [userRole])
+
+  if (userRole !== 'admin') {
+    return <Navigate to="/" replace />
+  }
+
+  return children
+}
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [username, setUsername] = useState('')
-  // const [userRole, setUserRole] = useState('')
+  const [userRole, setUserRole] = useState('')
 
-
-  const handleLogin = (username) => {
+  const handleLogin = (username, role) => {
     setIsLoggedIn(true)
     setUsername(username)
-    // setUserRole(role)
+    setUserRole(role)
   }
 
   const handleLogout = () => {
     setIsLoggedIn(false)
     setUsername('')
-    // setUserRole('')
+    setUserRole('')
   }
 
   return (
-    <div className='app'>
-
+    <div className="app">
       <BrowserRouter>
-        <Header 
-          isLoggedIn={isLoggedIn} 
-          username={username}  
+        <Header
+          isLoggedIn={isLoggedIn}
+          username={username}
+          userRole={userRole}
           onLogout={handleLogout}
-          // userRole={userRole}
         />
-        <div className='container'>
+
+        <div className="container">
           <Routes>
             <Route path="/" element={<Main />} />
+
             <Route path="/products" element={<ProductList />} />
-            <Route path='/products/:id' element={<ProductInfo />} />
-            <Route path='/add-product' element={<AddProduct />} />
-            <Route path='/signin' element={<SignIn onLogin={handleLogin}/>} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='/products/update/:id' element={<UpdateProduct />} />
+            <Route path="/products/:id" element={<ProductInfo />} />
+
+            {/* 관리자만 상품 등록 가능 */}
+            <Route
+              path="/add-product"
+              element={
+                <AdminCheck userRole={userRole}>
+                  <AddProduct />
+                </AdminCheck>
+              }
+            />
+
+            <Route
+              path="/products/update/:id"
+              element={<UpdateProduct />}
+            />
+
+            <Route
+              path="/signin"
+              element={<SignIn onLogin={handleLogin} />}
+            />
+
+            <Route path="/signup" element={<SignUp />} />
+
+            {/* 관리자만 관리자 페이지 접근 가능 */}
+            <Route
+              path="/admin"
+              element={
+                <AdminCheck userRole={userRole}>
+                  <AdminPage userRole={userRole} />
+                </AdminCheck>
+              }
+            />
           </Routes>
         </div>
       </BrowserRouter>
